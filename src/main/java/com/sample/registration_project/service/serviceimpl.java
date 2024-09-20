@@ -18,4 +18,10 @@ public class serviceimpl implements Services{
 		return datalist;
 	}
 
+	@Override
+	public ArrayList<userModel> delete(String id) {
+		datalist.remove(Integer.parseInt(id));
+		return datalist;
+	}
+
 }
