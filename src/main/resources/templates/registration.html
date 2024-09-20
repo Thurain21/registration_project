@@ -6,15 +6,20 @@
 </head>
 <body>
 	<h1>Registration Form</h1>
-	<form th:action="/dataRegister">
+	<form th:action="@{/dataRegister}">
 		<label for="name" >Name</label><br>
 		<input type="text" id="name" name="name" placeholder="Enter your name"><br>
 		<label for="age">Age</label><br>
 		<input type="number" id="age" name="age" placeholder="Enter your age"><br>
 		<label>Select Your Gender</label><br>
-		<input type="radio" value="Male" name="gender"><br>
-		<input type="radio" value="Female" name="gender"><br>
-		<input type="radio" value="Others" name="gender"><br>
+		<input type="radio" value="Male" name="gender">
+		<label>Male</label>
+		<br>
+		<input type="radio" value="Female" name="gender">
+		<label>Female</label><br>
+		<input type="radio" value="Others" name="gender">
+		<label>Others</label>
+		<br>
 		<label for="country">Select Your Country </label>
 		<select name="country" id="country">
 			<option>Singapore</option>
@@ -26,6 +31,20 @@
 		<input type="submit" value="Register">
 		
 	</form>
+	<table border="1">
+		<tr>
+			<th>Name</th>
+			<th>Age</th>
+			<th>Gender</th>
+			<th>Country</th>
+		</tr>
+		<tr th:each="userModel : ${datalist}">
+			<td th:text="${userModel.name}"></td>
+			<td th:text="${userModel.age}"></td>
+			<td th:text="${userModel.gender}"></td>
+			<td th:text="${userModel.country}"></td>
+		</tr>
+	</table>
 
 </body>
 </html>
