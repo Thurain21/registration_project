@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Registration Form</h1>
+	<form th:action="/dataRegister">
+		<label for="name" >Name</label><br>
+		<input type="text" id="name" name="name" placeholder="Enter your name"><br>
+		<label for="age">Age</label><br>
+		<input type="number" id="age" name="age" placeholder="Enter your age"><br>
+		<label>Select Your Gender</label><br>
+		<input type="radio" value="Male" name="gender"><br>
+		<input type="radio" value="Female" name="gender"><br>
+		<input type="radio" value="Others" name="gender"><br>
+		<label for="country">Select Your Country </label>
+		<select name="country" id="country">
+			<option>Singapore</option>
+			<option>Japan</option>
+			<option>Korea</option>
+			<option>China</option>
+		</select>
+		<br><br><br>
+		<input type="submit" value="Register">
+		
+	</form>
+
+</body>
+</html>
