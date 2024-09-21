@@ -36,4 +36,25 @@ public class RegistrationController {
 		model.setViewName("registration");
 		return model;
 	}
+	
+	@RequestMapping(value="/update/{userid}", method=RequestMethod.GET)
+	public ModelAndView updateData(@PathVariable(name="userid")String id) {
+		
+		userModel um = sip.updatedata(id);
+		ModelAndView model = new ModelAndView();
+		model.addObject("um",um);
+		model.setViewName("updateform");
+		return model;
+	}
+	
+	
+	@RequestMapping(value="/dataUpdate",method=RequestMethod.GET)
+	public ModelAndView dataChange (@ModelAttribute userModel um) {
+		ArrayList<userModel> datalist = sip.datachange(um);
+		ModelAndView model = new ModelAndView();
+		model.addObject("datalist",datalist);
+		model.setViewName("registration");
+		return model;
+	}
+	
 }
