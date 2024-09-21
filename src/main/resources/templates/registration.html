@@ -44,6 +44,7 @@
 			<td th:text="${userModel.gender}"></td>
 			<td th:text="${userModel.country}"></td>
 			<td><a th:href="@{/delete/{userid}(userid=${userModel.id})}">Delete</a></td>
+			<td><a th:href="@{/update/{userid}(userid=${userModel.id})}">Update</a></td>
 		</tr>
 	</table>
 
