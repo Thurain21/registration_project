@@ -21,9 +21,9 @@ public class RegistrationController {
 	
 	@RequestMapping(value="/dataRegister",method=RequestMethod.GET)
 	public ModelAndView dataRegister(@ModelAttribute userModel um) {		
-		ArrayList<userModel> datalist = sip.register(um);
+		int result = sip.register(um);
 		ModelAndView model = new ModelAndView();
-		model.addObject("datalist",datalist);
+		model.addObject("result",result);
 		model.setViewName("registration");
 		return model;
 	}
