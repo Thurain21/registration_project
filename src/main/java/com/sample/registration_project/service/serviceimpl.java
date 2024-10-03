@@ -2,20 +2,24 @@ package com.sample.registration_project.service;
 
 import java.util.ArrayList;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.sample.registration_project.model.userModel;
+import com.sample.registration_project.repository.RegistrationRepository;
 
 @Service
 public class serviceimpl implements Services{
 
 	private ArrayList<userModel> datalist = new ArrayList<userModel>();
 	
+	@Autowired
+	private RegistrationRepository repo;
+	
 	@Override
-	public ArrayList<userModel> register(userModel um) {
-		um.setId(String.valueOf(datalist.size()));
-		datalist.add(um);
-		return datalist;
+	public int register(userModel um) {
+		
+		return repo.register(um);
 	}
 
 	@Override
