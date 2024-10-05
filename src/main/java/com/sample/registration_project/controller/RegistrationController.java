@@ -1,11 +1,8 @@
 package com.sample.registration_project.controller;
 
-import java.util.ArrayList;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -24,36 +21,7 @@ public class RegistrationController {
 		int result = sip.register(um);
 		ModelAndView model = new ModelAndView();
 		model.addObject("result",result);
-		model.setViewName("registration");
-		return model;
-	}
-	
-	@RequestMapping(value="/delete/{userid}",method=RequestMethod.GET)
-	public ModelAndView deleteData(@PathVariable (name="userid")String id) {
-		ArrayList<userModel> datalist = sip.delete(id);
-		ModelAndView model = new ModelAndView();
-		model.addObject("datalist",datalist);
-		model.setViewName("registration");
-		return model;
-	}
-	
-	@RequestMapping(value="/update/{userid}", method=RequestMethod.GET)
-	public ModelAndView updateData(@PathVariable(name="userid")String id) {
-		
-		userModel um = sip.updatedata(id);
-		ModelAndView model = new ModelAndView();
-		model.addObject("um",um);
-		model.setViewName("updateform");
-		return model;
-	}
-	
-	
-	@RequestMapping(value="/dataUpdate",method=RequestMethod.GET)
-	public ModelAndView dataChange (@ModelAttribute userModel um) {
-		ArrayList<userModel> datalist = sip.datachange(um);
-		ModelAndView model = new ModelAndView();
-		model.addObject("datalist",datalist);
-		model.setViewName("registration");
+		model.setViewName("redirecte:/registration");
 		return model;
 	}
 	
